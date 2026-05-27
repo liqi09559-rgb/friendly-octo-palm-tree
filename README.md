@@ -23,11 +23,13 @@
 ```bash
 git clone https://github.com/yourname/ai-token-saver.git
 cd ai-token-saver
-安装依赖：
+
+2.安装依赖：
 
 bash
 pip install -r requirements.txt
-在代码中直接使用工具函数：
+
+3.在代码中直接使用工具函数：
 
 python
 from token_optimizer import count_tokens, compress_history
@@ -40,6 +42,8 @@ messages = [
 
 # 压缩到 500 token 以内
 compressed = compress_history(messages, max_tokens=500)
+
+
 📚 技能详解
 1. 精简系统提示（System Prompt）
 反例（浪费 Token）：
