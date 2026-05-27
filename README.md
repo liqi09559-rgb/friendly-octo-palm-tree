@@ -82,18 +82,24 @@
 非创造性任务将 temperature 设为 0，减少随机性，有时生成更短
 
 关闭不必要的功能（如 function calling）以减少提示 Token
+
+----
+
 ## 🧪 最佳实践检查清单
-系统提示是否少于 200 Token？
+-系统提示是否少于 200 Token？
 
-是否每次请求都发送了完整历史？是否可只发送摘要 + 最近 N 轮？
+-是否每次请求都发送了完整历史？是否可只发送摘要 + 最近 N 轮？
 
-输出是否限制了 max_tokens？
+-输出是否限制了 max_tokens？
 
-长文档是否提前分块或摘要？
+-长文档是否提前分块或摘要？
 
-是否复用了固定前缀以利用缓存？
+-是否复用了固定前缀以利用缓存？
 
-是否在简单任务上使用了过强的模型？
+-是否在简单任务上使用了过强的模型？
+
+----
+
 ## 📖 完整示例
 python
 from token_optimizer import compress_history, count_message_tokens
@@ -110,8 +116,18 @@ print(f"原始 Token 数: {count_message_tokens(conversation)}")
 
 compressed = compress_history(conversation, max_tokens=600)
 print(f"压缩后 Token 数: {count_message_tokens(compressed)}")
-# 使用 compressed 调用 API
+
 -----
+
+## 🛠️ 工具脚本说明
+token_optimizer.py 提供了以下函数：
+函数	功能
+count_tokens(text, model)	计算单段文本 Token 数
+count_message_tokens(messages, model)	计算消息列表总 Token 数
+truncate_text(text, max_tokens, model)	按 Token 数截断文本
+compress_history(messages, max_tokens, model)	自动裁剪对话历史，保留 system 消息并从最新消息向前填充
+
+----
 
 ## 📄 许可证
 本项目采用 MIT License。欢迎贡献更多 Token 优化技巧。
