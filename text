@@ -1,0 +1,6 @@
+ai-token-saver/
+├── README.md
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── token_optimizer.py
