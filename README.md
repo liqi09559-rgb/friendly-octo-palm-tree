@@ -6,6 +6,15 @@
 
 ---
 
+ai-token-saver/
+├── README.md
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── token_optimizer.py
+
+---
+
 ## ✨ 核心技能
 
 - 🎯 **精简 Prompt 设计** — 去除冗余，保留核心指令
